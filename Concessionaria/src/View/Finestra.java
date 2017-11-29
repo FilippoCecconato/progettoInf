@@ -29,6 +29,7 @@ public class Finestra extends javax.swing.JFrame {
         initComponents();
         this.accessori = accessori;
         this.generaAccessori();
+        this.setLocationRelativeTo(null);
     }
 
     /**

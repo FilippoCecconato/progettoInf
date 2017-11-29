@@ -23,8 +23,7 @@ public class FinestraLogin extends javax.swing.JFrame {
         initComponents();
         this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**
