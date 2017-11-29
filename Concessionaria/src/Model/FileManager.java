@@ -128,7 +128,9 @@ public class FileManager {
                     throw new Exception("Nessun caso");
             }
             
-        }       
+        }
+        outObjet.writeObject(auto);
+        outFile.close();
     }
     
     

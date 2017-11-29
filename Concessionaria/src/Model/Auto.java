@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author filippocecconato
  */
-public class Auto {
+public class Auto implements Serializable{
     private String marca;
     private String tipo;
     private String alimentazione;
@@ -21,7 +22,7 @@ public class Auto {
     private int mese,anno;
     private double prezzo;
     
-    ArrayList<Accessori> accessori;
+    ArrayList<Accessorio> accessori;
 
     public Auto(String marca, String tipo, String alimentazione, String cilindrata, String stato, int mese, int anno, double prezzo) {
         this.marca = marca;
@@ -67,7 +68,7 @@ public class Auto {
         return prezzo;
     }
 
-    public ArrayList<Accessori> getAccessori() {
+    public ArrayList<Accessorio> getAccessori() {
         return accessori;
     }
 
@@ -156,6 +157,9 @@ public class Auto {
         return true;
     }
     
+    public void addAccessorio (Accessorio a){
+        accessori.add(a);
+    }
     
     
     
