@@ -19,6 +19,7 @@ public class FinestraLogin extends javax.swing.JFrame {
      * Creates new form FinestraLogin
      */
     public FinestraLogin() {
+        super("Login");
         initComponents();
         this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

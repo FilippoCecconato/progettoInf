@@ -36,7 +36,7 @@ public class FileManager {
     }
     
     public void scrittura (boolean venduta, String filiale, Auto auto) throws Exception{
-        if(venduta){
+        if(!venduta){
             switch(filiale){
                 case "Treviso":
                     if(Treviso.exists()){

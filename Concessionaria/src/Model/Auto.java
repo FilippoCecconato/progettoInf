@@ -24,12 +24,23 @@ public class Auto implements Serializable{
     
     ArrayList<Accessorio> accessori;
 
-    public Auto(String marca, String tipo, String alimentazione, String cilindrata, String stato, int mese, int anno, double prezzo) {
+    public Auto(String marca, String tipo, String alimentazione, String cilindrata, double prezzo) {
+        this.marca = marca;
+        this.tipo = tipo;
+        this.stato= "nuovo";
+        this.alimentazione = alimentazione;
+        this.cilindrata = cilindrata;
+        this.prezzo = prezzo;
+        accessori = new ArrayList<>();
+    }
+
+    
+    public Auto(String marca, String tipo, String alimentazione, String cilindrata, int mese, int anno, double prezzo) {
         this.marca = marca;
         this.tipo = tipo;
         this.alimentazione = alimentazione;
         this.cilindrata = cilindrata;
-        this.stato = stato;
+        this.stato = "usato";
         this.mese = mese;
         this.anno = anno;
         this.prezzo = prezzo;

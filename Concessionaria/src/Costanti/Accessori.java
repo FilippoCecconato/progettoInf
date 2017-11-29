@@ -14,17 +14,17 @@ import java.util.Map;
  *
  * @author filippocecconato
  */
-class Accessori {
+public class Accessori {
     //Array Associativo
     private Map <String,Double> accessori;
 
-    public Accessori(Map<String, Double> accessori) {
+    public Accessori() {
         this.accessori = new HashMap<>();
         this.accessori.put("Radio Bluetooth MP3", 400.0);
         this.accessori.put("App Connect", 250.0);
         this.accessori.put("Cruise Control", 480.0);
         this.accessori.put("Clima", 120.0);
-        this.accessori.put("Cerchi Lega", 1200.0);
+        this.accessori.put("Cerchi in Lega", 1200.0);
     }
 
     public ArrayList<String> getAccessori() {
