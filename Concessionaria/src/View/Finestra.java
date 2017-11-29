@@ -5,6 +5,16 @@
  */
 package View;
 
+import Costanti.Accessori;
+import java.util.Calendar;
+import java.util.Iterator;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author filippocecconato
@@ -14,8 +24,11 @@ public class Finestra extends javax.swing.JFrame {
     /**
      * Creates new form Finestra
      */
-    public Finestra() {
+    public Finestra(Accessori accessori) {
+        super("Concessionaria");
         initComponents();
+        this.accessori = accessori;
+        this.generaAccessori();
     }
 
     /**
@@ -94,9 +107,8 @@ public class Finestra extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Benzina");
 
         buttonGroup1.add(jRadioButton2);
@@ -106,14 +118,15 @@ public class Finestra extends javax.swing.JFrame {
         jRadioButton3.setText("GPL");
 
         buttonGroup2.add(jRadioButton4);
+        jRadioButton4.setSelected(true);
         jRadioButton4.setText("Nuovo");
 
         buttonGroup2.add(jRadioButton5);
         jRadioButton5.setText("Usato");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(this.generaMesi());
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(this.generaAnno());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,11 +224,6 @@ public class Finestra extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inserimento", jPanel1);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -249,11 +257,6 @@ public class Finestra extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Vendita", jPanel2);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(jList2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -268,7 +271,7 @@ public class Finestra extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(274, Short.MAX_VALUE)
+                .addContainerGap(290, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112))
         );
@@ -309,7 +312,97 @@ public class Finestra extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public JComboBox<String> getjComboBox1() {
+        return jComboBox1;
+    }
+
+    public JComboBox<String> getjComboBox2() {
+        return jComboBox2;
+    }
+
+    public JComboBox<String> getjComboBox3() {
+        return jComboBox3;
+    }
+
+    public JList<String> getjList1() {
+        return jList1;
+    }
+
+    public JList<String> getjList2() {
+        return jList2;
+    }
+
+    public JRadioButton getjRadioButton1() {
+        return jRadioButton1;
+    }
+
+    public JRadioButton getjRadioButton2() {
+        return jRadioButton2;
+    }
+
+    public JRadioButton getjRadioButton3() {
+        return jRadioButton3;
+    }
+
+    public JRadioButton getjRadioButton4() {
+        return jRadioButton4;
+    }
+
+    public JRadioButton getjRadioButton5() {
+        return jRadioButton5;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public JTextField getjTextField2() {
+        return jTextField2;
+    }
+
+    public JTextField getjTextField3() {
+        return jTextField3;
+    }
+
+    public JTextField getjTextField4() {
+        return jTextField4;
+    }
+
     
+    
+    private DefaultComboBoxModel generaMesi(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for(int i =1;i<=12;i++){
+            model.addElement(""+i);
+        }
+        return model;
+    }
+    
+    private DefaultComboBoxModel generaAnno(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for(int i=2000;i<=Calendar.getInstance().get(Calendar.YEAR);i++){
+            model.addElement(""+i);
+        }
+        return model;
+    }
+    
+    private void generaAccessori(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        Iterator<String> i = accessori.getAccessori().iterator();
+        while(i.hasNext()){
+            String s = i.next();
+            model.addElement(s);
+        }
+        this.jComboBox1.setModel(model);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -349,4 +442,5 @@ public class Finestra extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+    private final Accessori accessori;
 }
