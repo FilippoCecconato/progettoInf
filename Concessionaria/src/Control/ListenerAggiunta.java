@@ -42,9 +42,9 @@ public class ListenerAggiunta implements ActionListener {
                a = new Auto(this.finestra.getjTextField1().getText(), this.finestra.getjTextField2().getText(), (this.finestra.getjRadioButton1().isSelected())? "Benzina":(this.finestra.getjRadioButton2().isSelected())? "Diesel":"GPL" , this.finestra.getjTextField3().getText(), Integer.parseInt((String)this.finestra.getjTextField4().getText()));           
            }
            else{
-               a = new Auto(this.finestra.getjTextField1().getText(), this.finestra.getjTextField2().getText(), (this.finestra.getjRadioButton1().isSelected())? "Benzina":(this.finestra.getjRadioButton2().isSelected())? "Diesel":"GPL" , this.finestra.getjTextField3().getText(), Integer.parseInt((String)this.finestra.getjComboBox1().getSelectedItem()) , Integer.parseInt((String)this.finestra.getjComboBox2().getSelectedItem()), Integer.parseInt((String)this.finestra.getjTextField4().getText()));           
+               a = new Auto(this.finestra.getjTextField1().getText(), this.finestra.getjTextField2().getText(), (this.finestra.getjRadioButton1().isSelected())? "Benzina":(this.finestra.getjRadioButton2().isSelected())? "Diesel":"GPL" , this.finestra.getjTextField3().getText(), Integer.parseInt((String)this.finestra.getjComboBox2().getSelectedItem()) , Integer.parseInt((String)this.finestra.getjComboBox3().getSelectedItem()), Integer.parseInt((String)this.finestra.getjTextField4().getText()));           
            }
-           a.addAccessorio(new Accessorio((String)this.finestra.getjComboBox3().getSelectedItem(), this.accessori.getPrezzo((String)this.finestra.getjComboBox3().getSelectedItem())));
+           a.addAccessorio(new Accessorio((String)this.finestra.getjComboBox1().getSelectedItem(), this.accessori.getPrezzo((String)this.finestra.getjComboBox1().getSelectedItem())));
             try {
                 this.fm.scrittura(false, this.listenerLogin.getUser(), a);
             } catch (Exception ex) {
