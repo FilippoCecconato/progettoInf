@@ -6,6 +6,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -105,6 +106,54 @@ public class Auto {
     @Override
     public String toString() {
         return "Auto{" + "marca=" + marca + ", tipo=" + tipo + ", alimentazione=" + alimentazione + ", cilindrata=" + cilindrata + ", stato=" + stato + ", mese=" + mese + ", anno=" + anno + ", prezzo=" + prezzo + ", accessori=" + accessori + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Auto other = (Auto) obj;
+        if (this.mese != other.mese) {
+            return false;
+        }
+        if (this.anno != other.anno) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.prezzo) != Double.doubleToLongBits(other.prezzo)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.alimentazione, other.alimentazione)) {
+            return false;
+        }
+        if (!Objects.equals(this.cilindrata, other.cilindrata)) {
+            return false;
+        }
+        if (!Objects.equals(this.stato, other.stato)) {
+            return false;
+        }
+        if (!Objects.equals(this.accessori, other.accessori)) {
+            return false;
+        }
+        return true;
     }
     
     
