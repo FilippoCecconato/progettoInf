@@ -5,7 +5,9 @@
  */
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
@@ -157,7 +159,23 @@ public class FinestraLogin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public JTextField getjTextField2() {
+        return jTextField2;
+    }
   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
